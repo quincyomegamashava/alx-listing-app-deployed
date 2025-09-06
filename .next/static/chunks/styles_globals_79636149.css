@@ -15,6 +15,10 @@
   position: relative;
 }
 
+.col-span-full {
+  grid-column: 1 / -1;
+}
+
 .container {
   width: 100%;
 }
@@ -86,6 +90,11 @@
 .border {
   border-style: var(--tw-border-style);
   border-width: 1px;
+}
+
+.border-b {
+  border-bottom-style: var(--tw-border-style);
+  border-bottom-width: 1px;
 }
 
 .object-cover {
