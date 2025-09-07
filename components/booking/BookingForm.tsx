@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import api from "../../lib/api";
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
@@ -29,35 +30,35 @@ const BookingForm = () => {
 
   // Handles form submission
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-    setSuccess(false);
+  e.preventDefault();
+  setLoading(true);
+  setError(null);
+  setSuccess(false);
 
-    try {
-      await axios.post("/api/bookings", formData);
-      setSuccess(true);
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phoneNumber: "",
-        cardNumber: "",
-        expirationDate: "",
-        cvv: "",
-        streetAddress: "",
-        city: "",
-        state: "",
-        zipCode: "",
-        country: "",
-      });
-    } catch (err) {
-      console.error("Booking failed:", err);
-      setError("❌ Failed to submit booking. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  try {
+    await api.post("/bookings", formData); // goes to external API
+    setSuccess(true);
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      cardNumber: "",
+      expirationDate: "",
+      cvv: "",
+      streetAddress: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      country: "",
+    });
+  } catch (err) {
+    console.error("Booking failed:", err);
+    setError("❌ Failed to submit booking. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="bg-white p-6 shadow-md rounded-lg">

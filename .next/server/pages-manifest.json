@@ -2,5 +2,9 @@
   "/": "pages/index.js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js"
+  "/_error": "pages/_error.js",
+  "/api/properties": "pages/api/properties.js",
+  "/booking": "pages/booking.js",
+  "/properties": "pages/properties.js",
+  "/property/[id]": "pages/property/[id].js"
 }
