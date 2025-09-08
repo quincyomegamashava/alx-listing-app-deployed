@@ -472,13 +472,17 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/index.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/router.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 ;
 ;
+;
 const BookingForm = ()=>{
     _s();
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"])();
+    const { id, title, price } = router.query; // property data from URL
     const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])({
         firstName: "",
         lastName: "",
@@ -495,8 +499,6 @@ const BookingForm = ()=>{
     });
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [success, setSuccess] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    // Handles input updates
     const handleChange = (e)=>{
         const { name, value } = e.target;
         setFormData((prev)=>({
@@ -504,28 +506,25 @@ const BookingForm = ()=>{
                 [name]: value
             }));
     };
-    // Handles form submission
     const handleSubmit = async (e)=>{
         e.preventDefault();
         setLoading(true);
         setError(null);
-        setSuccess(false);
         try {
-            await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].post("/bookings", formData);
-            setSuccess(true);
-            setFormData({
-                firstName: "",
-                lastName: "",
-                email: "",
-                phoneNumber: "",
-                cardNumber: "",
-                expirationDate: "",
-                cvv: "",
-                streetAddress: "",
-                city: "",
-                state: "",
-                zipCode: "",
-                country: ""
+            await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].post("/api/bookings", {
+                ...formData,
+                propertyId: id
+            });
+            const bookingDetails = {
+                propertyName: title,
+                price: Number(price),
+                bookingFee: 50,
+                totalNights: 3,
+                startDate: "2025-09-10"
+            };
+            router.push({
+                pathname: "/order-summary",
+                query: bookingDetails
             });
         } catch (err) {
             console.error("Booking failed:", err);
@@ -539,417 +538,26 @@ const BookingForm = ()=>{
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                 className: "text-xl font-semibold",
-                children: "Contact Detail"
-            }, void 0, false, {
+                children: [
+                    "Booking ",
+                    title
+                ]
+            }, void 0, true, {
                 fileName: "[project]/components/booking/BookingForm.tsx",
-                lineNumber: 64,
+                lineNumber: 62,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                 onSubmit: handleSubmit,
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid grid-cols-1 md:grid-cols-2 gap-4",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "block text-sm font-medium",
-                                        children: "First Name"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 69,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        type: "text",
-                                        name: "firstName",
-                                        value: formData.firstName,
-                                        onChange: handleChange,
-                                        className: "border p-2 w-full mt-1 rounded",
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 70,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 68,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "block text-sm font-medium",
-                                        children: "Last Name"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 80,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        type: "text",
-                                        name: "lastName",
-                                        value: formData.lastName,
-                                        onChange: handleChange,
-                                        className: "border p-2 w-full mt-1 rounded",
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 81,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 79,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/booking/BookingForm.tsx",
-                        lineNumber: 67,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid grid-cols-1 md:grid-cols-2 gap-4 mt-4",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "block text-sm font-medium",
-                                        children: "Email"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 94,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        type: "email",
-                                        name: "email",
-                                        value: formData.email,
-                                        onChange: handleChange,
-                                        className: "border p-2 w-full mt-1 rounded",
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 95,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 93,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "block text-sm font-medium",
-                                        children: "Phone Number"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 105,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        type: "text",
-                                        name: "phoneNumber",
-                                        value: formData.phoneNumber,
-                                        onChange: handleChange,
-                                        className: "border p-2 w-full mt-1 rounded"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 106,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 104,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/booking/BookingForm.tsx",
-                        lineNumber: 92,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "text-xl font-semibold mt-6",
-                        children: "Pay with"
-                    }, void 0, false, {
-                        fileName: "[project]/components/booking/BookingForm.tsx",
-                        lineNumber: 117,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mt-4",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                className: "block text-sm font-medium",
-                                children: "Card Number"
-                            }, void 0, false, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 119,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "text",
-                                name: "cardNumber",
-                                value: formData.cardNumber,
-                                onChange: handleChange,
-                                className: "border p-2 w-full mt-1 rounded",
-                                required: true
-                            }, void 0, false, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 120,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/booking/BookingForm.tsx",
-                        lineNumber: 118,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid grid-cols-1 md:grid-cols-2 gap-4 mt-4",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "block text-sm font-medium",
-                                        children: "Expiration Date"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 131,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        type: "text",
-                                        name: "expirationDate",
-                                        value: formData.expirationDate,
-                                        onChange: handleChange,
-                                        className: "border p-2 w-full mt-1 rounded",
-                                        placeholder: "MM/YY",
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 132,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 130,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "block text-sm font-medium",
-                                        children: "CVV"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 143,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        type: "text",
-                                        name: "cvv",
-                                        value: formData.cvv,
-                                        onChange: handleChange,
-                                        className: "border p-2 w-full mt-1 rounded",
-                                        required: true
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 144,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 142,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/booking/BookingForm.tsx",
-                        lineNumber: 129,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "text-xl font-semibold mt-6",
-                        children: "Billing Address"
-                    }, void 0, false, {
-                        fileName: "[project]/components/booking/BookingForm.tsx",
-                        lineNumber: 156,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mt-4",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                className: "block text-sm font-medium",
-                                children: "Street Address"
-                            }, void 0, false, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 158,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "text",
-                                name: "streetAddress",
-                                value: formData.streetAddress,
-                                onChange: handleChange,
-                                className: "border p-2 w-full mt-1 rounded"
-                            }, void 0, false, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 159,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/booking/BookingForm.tsx",
-                        lineNumber: 157,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid grid-cols-1 md:grid-cols-2 gap-4 mt-4",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "block text-sm font-medium",
-                                        children: "City"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 169,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        type: "text",
-                                        name: "city",
-                                        value: formData.city,
-                                        onChange: handleChange,
-                                        className: "border p-2 w-full mt-1 rounded"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 170,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 168,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "block text-sm font-medium",
-                                        children: "State"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 179,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        type: "text",
-                                        name: "state",
-                                        value: formData.state,
-                                        onChange: handleChange,
-                                        className: "border p-2 w-full mt-1 rounded"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 180,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 178,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/booking/BookingForm.tsx",
-                        lineNumber: 167,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid grid-cols-1 md:grid-cols-2 gap-4 mt-4",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "block text-sm font-medium",
-                                        children: "Zip Code"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 191,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        type: "text",
-                                        name: "zipCode",
-                                        value: formData.zipCode,
-                                        onChange: handleChange,
-                                        className: "border p-2 w-full mt-1 rounded"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 192,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 190,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "block text-sm font-medium",
-                                        children: "Country"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 201,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        type: "text",
-                                        name: "country",
-                                        value: formData.country,
-                                        onChange: handleChange,
-                                        className: "border p-2 w-full mt-1 rounded"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/booking/BookingForm.tsx",
-                                        lineNumber: 202,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/components/booking/BookingForm.tsx",
-                                lineNumber: 200,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/booking/BookingForm.tsx",
-                        lineNumber: 189,
-                        columnNumber: 9
-                    }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         type: "submit",
                         disabled: loading,
                         className: "mt-6 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md w-full transition",
-                        children: loading ? "Processing..." : "Confirm & Pay"
+                        children: loading ? "Processing..." : `Confirm & Pay $${price}`
                     }, void 0, false, {
                         fileName: "[project]/components/booking/BookingForm.tsx",
-                        lineNumber: 213,
+                        lineNumber: 65,
                         columnNumber: 9
                     }, this),
                     error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -957,31 +565,27 @@ const BookingForm = ()=>{
                         children: error
                     }, void 0, false, {
                         fileName: "[project]/components/booking/BookingForm.tsx",
-                        lineNumber: 222,
+                        lineNumber: 72,
                         columnNumber: 19
-                    }, this),
-                    success && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-green-600 font-semibold mt-2",
-                        children: "✅ Booking confirmed!"
-                    }, void 0, false, {
-                        fileName: "[project]/components/booking/BookingForm.tsx",
-                        lineNumber: 224,
-                        columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/booking/BookingForm.tsx",
-                lineNumber: 65,
+                lineNumber: 63,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/booking/BookingForm.tsx",
-        lineNumber: 63,
+        lineNumber: 61,
         columnNumber: 5
     }, this);
 };
-_s(BookingForm, "H+ZAi+pn0PJ1gzbK1UVvdNf2SxM=");
+_s(BookingForm, "FcQDN8kGypa/NzlGPkHR3uMJQwM=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"]
+    ];
+});
 _c = BookingForm;
 const __TURBOPACK__default__export__ = BookingForm;
 var _c;
@@ -989,6 +593,232 @@ __turbopack_context__.k.register(_c, "BookingForm");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
+ // import { useState } from "react";
+ // import { useRouter } from "next/router";
+ // import axios from "axios";
+ // const BookingForm = () => {
+ //   const router = useRouter();
+ //   const [formData, setFormData] = useState({
+ //     firstName: "",
+ //     lastName: "",
+ //     email: "",
+ //     phoneNumber: "",
+ //     cardNumber: "",
+ //     expirationDate: "",
+ //     cvv: "",
+ //     streetAddress: "",
+ //     city: "",
+ //     state: "",
+ //     zipCode: "",
+ //     country: "",
+ //   });
+ //   const [loading, setLoading] = useState(false);
+ //   const [error, setError] = useState<string | null>(null);
+ //   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+ //     const { name, value } = e.target;
+ //     setFormData((prev) => ({ ...prev, [name]: value }));
+ //   };
+ //   const handleSubmit = async (e: React.FormEvent) => {
+ //     e.preventDefault();
+ //     setLoading(true);
+ //     setError(null);
+ //     try {
+ //       await axios.post("/api/bookings", formData);
+ //       // Example booking details (replace with real property data later)
+ //       const bookingDetails = {
+ //         propertyName: "Cozy Beach Villa",
+ //         price: 500,
+ //         bookingFee: 50,
+ //         totalNights: 3,
+ //         startDate: "2025-09-10",
+ //       };
+ //       router.push({
+ //         pathname: "/order-summary",
+ //         query: bookingDetails, // passed via URL
+ //       });
+ //     } catch (err) {
+ //       console.error("Booking failed:", err);
+ //       setError("❌ Failed to submit booking. Please try again.");
+ //     } finally {
+ //       setLoading(false);
+ //     }
+ //   };
+ //   return (
+ //     <div className="bg-white p-6 shadow-md rounded-lg">
+ //       <h2 className="text-xl font-semibold">Contact Detail</h2>
+ //       <form onSubmit={handleSubmit}>
+ //         <form onSubmit={handleSubmit}>
+ //         {/* Contact Information */}
+ //         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+ //           <div>
+ //             <label className="block text-sm font-medium">First Name</label>
+ //             <input
+ //               type="text"
+ //               name="firstName"
+ //               value={formData.firstName}
+ //               onChange={handleChange}
+ //               className="border p-2 w-full mt-1 rounded"
+ //               required
+ //             />
+ //           </div>
+ //           <div>
+ //             <label className="block text-sm font-medium">Last Name</label>
+ //             <input
+ //               type="text"
+ //               name="lastName"
+ //               value={formData.lastName}
+ //               onChange={handleChange}
+ //               className="border p-2 w-full mt-1 rounded"
+ //               required
+ //             />
+ //           </div>
+ //         </div>
+ //         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+ //           <div>
+ //             <label className="block text-sm font-medium">Email</label>
+ //             <input
+ //               type="email"
+ //               name="email"
+ //               value={formData.email}
+ //               onChange={handleChange}
+ //               className="border p-2 w-full mt-1 rounded"
+ //               required
+ //             />
+ //           </div>
+ //           <div>
+ //             <label className="block text-sm font-medium">Phone Number</label>
+ //             <input
+ //               type="text"
+ //               name="phoneNumber"
+ //               value={formData.phoneNumber}
+ //               onChange={handleChange}
+ //               className="border p-2 w-full mt-1 rounded"
+ //             />
+ //           </div>
+ //         </div>
+ //         {/* Payment Information */}
+ //         <h2 className="text-xl font-semibold mt-6">Pay with</h2>
+ //         <div className="mt-4">
+ //           <label className="block text-sm font-medium">Card Number</label>
+ //           <input
+ //             type="text"
+ //             name="cardNumber"
+ //             value={formData.cardNumber}
+ //             onChange={handleChange}
+ //             className="border p-2 w-full mt-1 rounded"
+ //             required
+ //           />
+ //         </div>
+ //         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+ //           <div>
+ //             <label className="block text-sm font-medium">Expiration Date</label>
+ //             <input
+ //               type="text"
+ //               name="expirationDate"
+ //               value={formData.expirationDate}
+ //               onChange={handleChange}
+ //               className="border p-2 w-full mt-1 rounded"
+ //               placeholder="MM/YY"
+ //               required
+ //             />
+ //           </div>
+ //           <div>
+ //             <label className="block text-sm font-medium">CVV</label>
+ //             <input
+ //               type="text"
+ //               name="cvv"
+ //               value={formData.cvv}
+ //               onChange={handleChange}
+ //               className="border p-2 w-full mt-1 rounded"
+ //               required
+ //             />
+ //           </div>
+ //         </div>
+ //         {/* Billing Address */}
+ //         <h2 className="text-xl font-semibold mt-6">Billing Address</h2>
+ //         <div className="mt-4">
+ //           <label className="block text-sm font-medium">Street Address</label>
+ //           <input
+ //             type="text"
+ //             name="streetAddress"
+ //             value={formData.streetAddress}
+ //             onChange={handleChange}
+ //             className="border p-2 w-full mt-1 rounded"
+ //           />
+ //         </div>
+ //         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+ //           <div>
+ //             <label className="block text-sm font-medium">City</label>
+ //             <input
+ //               type="text"
+ //               name="city"
+ //               value={formData.city}
+ //               onChange={handleChange}
+ //               className="border p-2 w-full mt-1 rounded"
+ //             />
+ //           </div>
+ //           <div>
+ //             <label className="block text-sm font-medium">State</label>
+ //             <input
+ //               type="text"
+ //               name="state"
+ //               value={formData.state}
+ //               onChange={handleChange}
+ //               className="border p-2 w-full mt-1 rounded"
+ //             />
+ //           </div>
+ //         </div>
+ //         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+ //           <div>
+ //             <label className="block text-sm font-medium">Zip Code</label>
+ //             <input
+ //               type="text"
+ //               name="zipCode"
+ //               value={formData.zipCode}
+ //               onChange={handleChange}
+ //               className="border p-2 w-full mt-1 rounded"
+ //             />
+ //           </div>
+ //           <div>
+ //             <label className="block text-sm font-medium">Country</label>
+ //             <input
+ //               type="text"
+ //               name="country"
+ //               value={formData.country}
+ //               onChange={handleChange}
+ //               className="border p-2 w-full mt-1 rounded"
+ //             />
+ //           </div>
+ //         </div>
+ //         {/* Submit Button */}
+ //         <button
+ //           type="submit"
+ //           disabled={loading}
+ //           className="mt-6 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md w-full transition"
+ //         >
+ //           {loading ? "Processing..." : "Confirm & Pay"}
+ //         </button>
+ //         {/* Feedback */}
+ //         {error && <p className="text-red-500 mt-2">{error}</p>}
+ //         {success && (
+ //           <p className="text-green-600 font-semibold mt-2">
+ //             ✅ Booking confirmed!
+ //           </p>
+ //         )}
+ //       </form>
+ //         <button
+ //           type="submit"
+ //           disabled={loading}
+ //           className="mt-6 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md w-full transition"
+ //         >
+ //           {loading ? "Processing..." : "Confirm & Pay"}
+ //         </button>
+ //         {error && <p className="text-red-500 mt-2">{error}</p>}
+ //       </form>
+ //     </div>
+ //   );
+ // };
+ // export default BookingForm;
 }}),
 "[project]/components/booking/OrderSummary.tsx [client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
@@ -1008,19 +838,19 @@ const OrderSummary = ({ bookingDetails })=>/*#__PURE__*/ (0, __TURBOPACK__import
                 children: "Review Order Details"
             }, void 0, false, {
                 fileName: "[project]/components/booking/OrderSummary.tsx",
-                lineNumber: 11,
+                lineNumber: 12,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex items-center mt-4",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: "https://example.com/property.jpg",
-                        alt: "Property",
+                        src: bookingDetails.imageUrl,
+                        alt: bookingDetails.propertyName,
                         className: "w-32 h-32 object-cover rounded-md"
                     }, void 0, false, {
                         fileName: "[project]/components/booking/OrderSummary.tsx",
-                        lineNumber: 13,
+                        lineNumber: 14,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1031,7 +861,7 @@ const OrderSummary = ({ bookingDetails })=>/*#__PURE__*/ (0, __TURBOPACK__import
                                 children: bookingDetails.propertyName
                             }, void 0, false, {
                                 fileName: "[project]/components/booking/OrderSummary.tsx",
-                                lineNumber: 19,
+                                lineNumber: 20,
                                 columnNumber: 9
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1039,7 +869,7 @@ const OrderSummary = ({ bookingDetails })=>/*#__PURE__*/ (0, __TURBOPACK__import
                                 children: "4.76 (345 reviews)"
                             }, void 0, false, {
                                 fileName: "[project]/components/booking/OrderSummary.tsx",
-                                lineNumber: 20,
+                                lineNumber: 21,
                                 columnNumber: 9
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1052,19 +882,19 @@ const OrderSummary = ({ bookingDetails })=>/*#__PURE__*/ (0, __TURBOPACK__import
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/booking/OrderSummary.tsx",
-                                lineNumber: 21,
+                                lineNumber: 22,
                                 columnNumber: 9
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/booking/OrderSummary.tsx",
-                        lineNumber: 18,
+                        lineNumber: 19,
                         columnNumber: 7
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/booking/OrderSummary.tsx",
-                lineNumber: 12,
+                lineNumber: 13,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1077,7 +907,7 @@ const OrderSummary = ({ bookingDetails })=>/*#__PURE__*/ (0, __TURBOPACK__import
                                 children: "Booking Fee"
                             }, void 0, false, {
                                 fileName: "[project]/components/booking/OrderSummary.tsx",
-                                lineNumber: 30,
+                                lineNumber: 31,
                                 columnNumber: 9
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1087,13 +917,13 @@ const OrderSummary = ({ bookingDetails })=>/*#__PURE__*/ (0, __TURBOPACK__import
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/booking/OrderSummary.tsx",
-                                lineNumber: 31,
+                                lineNumber: 32,
                                 columnNumber: 9
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/booking/OrderSummary.tsx",
-                        lineNumber: 29,
+                        lineNumber: 30,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1103,7 +933,7 @@ const OrderSummary = ({ bookingDetails })=>/*#__PURE__*/ (0, __TURBOPACK__import
                                 children: "Subtotal"
                             }, void 0, false, {
                                 fileName: "[project]/components/booking/OrderSummary.tsx",
-                                lineNumber: 34,
+                                lineNumber: 35,
                                 columnNumber: 9
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1113,13 +943,13 @@ const OrderSummary = ({ bookingDetails })=>/*#__PURE__*/ (0, __TURBOPACK__import
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/booking/OrderSummary.tsx",
-                                lineNumber: 35,
+                                lineNumber: 36,
                                 columnNumber: 9
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/booking/OrderSummary.tsx",
-                        lineNumber: 33,
+                        lineNumber: 34,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1129,7 +959,7 @@ const OrderSummary = ({ bookingDetails })=>/*#__PURE__*/ (0, __TURBOPACK__import
                                 children: "Grand Total"
                             }, void 0, false, {
                                 fileName: "[project]/components/booking/OrderSummary.tsx",
-                                lineNumber: 38,
+                                lineNumber: 39,
                                 columnNumber: 9
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1139,25 +969,25 @@ const OrderSummary = ({ bookingDetails })=>/*#__PURE__*/ (0, __TURBOPACK__import
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/booking/OrderSummary.tsx",
-                                lineNumber: 39,
+                                lineNumber: 40,
                                 columnNumber: 9
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/booking/OrderSummary.tsx",
-                        lineNumber: 37,
+                        lineNumber: 38,
                         columnNumber: 7
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/booking/OrderSummary.tsx",
-                lineNumber: 28,
+                lineNumber: 29,
                 columnNumber: 5
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/booking/OrderSummary.tsx",
-        lineNumber: 10,
+        lineNumber: 11,
         columnNumber: 3
     }, this);
 _c = OrderSummary;
@@ -1167,6 +997,48 @@ __turbopack_context__.k.register(_c, "OrderSummary");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
+ // interface BookingDetails {
+ //   propertyName: string;
+ //   price: number;
+ //   bookingFee: number;
+ //   totalNights: number;
+ //   startDate: string;
+ // }
+ // const OrderSummary: React.FC<{ bookingDetails: BookingDetails }> = ({ bookingDetails }) => (
+ //   <div className="bg-white p-6 shadow-md rounded-lg">
+ //     <h2 className="text-xl font-semibold">Review Order Details</h2>
+ //     <div className="flex items-center mt-4">
+ //       <img
+ //         src="https://example.com/property.jpg"
+ //         alt="Property"
+ //         className="w-32 h-32 object-cover rounded-md"
+ //       />
+ //       <div className="ml-4">
+ //         <h3 className="text-lg font-semibold">{bookingDetails.propertyName}</h3>
+ //         <p className="text-sm text-gray-500">4.76 (345 reviews)</p>
+ //         <p className="text-sm text-gray-500">
+ //           {bookingDetails.startDate} • {bookingDetails.totalNights} Nights
+ //         </p>
+ //       </div>
+ //     </div>
+ //     {/* Price Breakdown */}
+ //     <div className="mt-6 space-y-2">
+ //       <div className="flex justify-between">
+ //         <p>Booking Fee</p>
+ //         <p>${bookingDetails.bookingFee}</p>
+ //       </div>
+ //       <div className="flex justify-between">
+ //         <p>Subtotal</p>
+ //         <p>${bookingDetails.price}</p>
+ //       </div>
+ //       <div className="flex justify-between font-semibold">
+ //         <p>Grand Total</p>
+ //         <p>${bookingDetails.bookingFee + bookingDetails.price}</p>
+ //       </div>
+ //     </div>
+ //   </div>
+ // );
+ // export default OrderSummary;
 }}),
 "[project]/components/booking/CancellationPolicy.tsx [client] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
