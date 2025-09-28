@@ -19,6 +19,8 @@ export interface CardProps {
   image: string;
   location?: string;      // Optional — e.g., "Miami, FL"
   price?: number;         // Optional — e.g., 120 (will be formatted as $120/night)
+  rating?: number;        // Optional — e.g., 4.8
+  isSuperhost?: boolean;  // Optional — superhost badge
   children?: React.ReactNode; // Optional — for extra content inside card
 }
 

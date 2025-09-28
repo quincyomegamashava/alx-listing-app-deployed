@@ -59,9 +59,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* Navigation Header */}
-      <NavigationHeader />
-
       {/* Hero Section */}
       <HeroSection />
 
@@ -78,74 +75,18 @@ export default function Home() {
       {/* Show More Button */}
       <ShowMoreButton />
 
-      {/* Footer */}
-      <Footer />
     </>
   );
 }
 
-// ─── Navigation Header with Auth & Links ────────────────────────────────────
-
-function NavigationHeader() {
-  return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <span className="text-2xl font-extrabold text-green-600">alx</span>
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-6">
-            <Link
-              href="/properties"
-              className="text-gray-700 hover:text-green-600 font-medium transition"
-            >
-              Properties
-            </Link>
-            <Link
-              href="/bookings"
-              className="text-gray-700 hover:text-green-600 font-medium transition"
-            >
-              My Bookings
-            </Link>
-          </nav>
-
-          {/* Auth Buttons */}
-          <div className="flex items-center space-x-4">
-            <Link
-              href="/login"
-              className="hidden sm:inline-block text-sm font-medium text-gray-700 hover:text-green-600 transition"
-            >
-              Log in
-            </Link>
-            <Button
-              label="Sign up"
-              onClick={() => (window.location.href = "/signup")}
-              variant="primary"
-              className="text-sm px-4 py-2"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Banner (optional) */}
-      <div className="bg-green-700 text-white text-xs text-center py-2 sm:hidden">
-        Overseas trip? Get the latest travel guides ·{" "}
-        <button className="underline hover:text-yellow-200 transition">
-          More Info
-        </button>
-      </div>
-    </header>
-  );
-}
 
 // ─── Hero Section ───────────────────────────────────────────────────────────
 
+import SearchBar from "../components/common/SearchBar";
+
 function HeroSection() {
   return (
-    <section className="relative w-full h-[500px] sm:h-[600px]">
+    <section className="relative w-full h-[520px] sm:h-[600px]">
       <Image
         src="/assets/Hero section imge.png"
         alt="Scenic view of beautiful destinations"
@@ -155,18 +96,23 @@ function HeroSection() {
         className="object-cover"
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center bg-black/40 p-6">
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-3 leading-tight">
           Find your favorite place here!
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl max-w-3xl px-4">
           The best prices for over 2 million properties worldwide
         </p>
-        <div className="mt-8">
+        <div className="mt-6 w-full max-w-3xl">
+          <div className="bg-white/95 rounded-full px-3 py-2 shadow-lg">
+            <SearchBar />
+          </div>
+        </div>
+        <div className="mt-4">
           <Button
-            label="Start Exploring"
-            onClick={() => document.getElementById("listings")?.scrollIntoView({ behavior: "smooth" })}
-            variant="primary"
-            className="px-8 py-3 text-lg font-semibold"
+            label="Explore Stays"
+            onClick={() => window.location.href = '/properties'}
+            variant="secondary"
+            className="px-6 py-2 text-sm font-semibold bg-white hover:bg-gray-100"
           />
         </div>
       </div>
@@ -240,7 +186,7 @@ function ListingsSection({ properties, error, loading }: ListingsSectionProps) {
         {properties.map((property) => (
           <Link
             key={property.id}
-            href={`/properties/${property.id}`}
+            href={`/property/${property.id}`}
             className="transform hover:scale-105 transition-transform duration-300"
           >
             <Card
@@ -269,105 +215,3 @@ function ShowMoreButton() {
   );
 }
 
-// ─── Footer ─────────────────────────────────────────────────────────────────
-
-function Footer() {
-  return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-sm">
-        {/* About */}
-        <div>
-          <h3 className="font-bold text-lg mb-4">alx</h3>
-          <p className="text-gray-300 leading-relaxed max-w-xs">
-            ALX is a platform where travelers can discover and book unique,
-            comfortable, and affordable lodging options worldwide.
-          </p>
-        </div>
-
-        {/* Explore */}
-        <div>
-          <h4 className="font-semibold mb-4">Explore Popular Destinations</h4>
-          <ul className="space-y-2">
-            {["Apartments in Dubai", "Hotels in New York", "Villa in Spain", "Mansion in Indonesia"].map(
-              (item, idx) => (
-                <li key={idx}>
-                  <Link
-                    href="#"
-                    className="text-gray-300 hover:text-green-400 transition"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              )
-            )}
-          </ul>
-        </div>
-
-        {/* Company */}
-        <div>
-          <h4 className="font-semibold mb-4">Company</h4>
-          <ul className="space-y-2">
-            {["About us", "Blog", "Careers", "Customers"].map((item, idx) => (
-              <li key={idx}>
-                <Link
-                  href="#"
-                  className="text-gray-300 hover:text-green-400 transition"
-                >
-                  {item}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Help */}
-        <div>
-          <h4 className="font-semibold mb-4">Help & Support</h4>
-          <ul className="space-y-2">
-            {["Support Center", "Cancel Booking", "Refund Policy", "Partner With Us"].map(
-              (item, idx) => (
-                <li key={idx}>
-                  <Link
-                    href="#"
-                    className="text-gray-300 hover:text-green-400 transition"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              )
-            )}
-          </ul>
-        </div>
-      </div>
-
-      {/* Footer Bottom */}
-      <div className="border-t border-gray-800 mt-12 pt-8 max-w-7xl mx-auto px-4">
-        <div className="flex flex-col sm:flex-row justify-between items-center text-gray-400 text-xs space-y-4 sm:space-y-0">
-          <p>
-            Some hotels require you to cancel more than 24 hours before check-in. Details{" "}
-            <Link href="#" className="underline hover:text-white transition">
-              here
-            </Link>
-            .
-          </p>
-          <div className="flex space-x-4">
-            <Link href="#" className="hover:underline">
-              Terms
-            </Link>
-            <span>•</span>
-            <Link href="#" className="hover:underline">
-              Privacy
-            </Link>
-            <span>•</span>
-            <Link href="#" className="hover:underline">
-              Cookies
-            </Link>
-          </div>
-        </div>
-        <p className="text-center text-gray-500 mt-4">
-          © {new Date().getFullYear()} ALX — All rights reserved.
-        </p>
-      </div>
-    </footer>
-  );
-}

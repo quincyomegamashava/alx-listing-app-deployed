@@ -4,7 +4,7 @@ import axios from "axios";
 
 const BookingForm = () => {
   const router = useRouter();
-  const { id, title, price } = router.query;
+  const { id, title, price, imageUrl } = router.query;
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -43,6 +43,7 @@ const BookingForm = () => {
         bookingFee: 50,
         totalNights: 3,
         startDate: "2025-09-10",
+        imageUrl: (imageUrl as string) || "/assets/Logos.png",
       };
 
       router.push({
@@ -93,7 +94,7 @@ const BookingForm = () => {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition placeholder-gray-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition placeholder-gray-400"
                     placeholder="John"
                     required
                   />
@@ -169,7 +170,7 @@ const BookingForm = () => {
                       name="cardNumber"
                       value={formData.cardNumber}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition placeholder-gray-400 pl-10"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition placeholder-gray-400 pl-10"
                       placeholder="1234 5678 9012 3456"
                       required
                     />
@@ -301,7 +302,7 @@ const BookingForm = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center space-x-2"
               >
                 {loading ? (
                   <>

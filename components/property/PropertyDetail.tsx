@@ -2,6 +2,8 @@
 // components/property/PropertyDetail.tsx
 import React from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import ReviewSection from "./ReviewSection";
 
 interface PropertyDetailProps {
   property: {
@@ -31,11 +33,14 @@ const PropertyDetail: React.FC<PropertyDetailProps> = ({ property }) => {
 
   return (
     <div className="max-w-5xl mx-auto p-6">
-      <div className="rounded-xl overflow-hidden shadow-md">
-        <img
+      <div className="rounded-xl overflow-hidden shadow-md relative h-96">
+        <Image
           src={property.imageUrl}
           alt={property.title}
-          className="w-full h-96 object-cover"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
         />
       </div>
 
@@ -49,10 +54,13 @@ const PropertyDetail: React.FC<PropertyDetailProps> = ({ property }) => {
           {property.description}
         </p>
 
-        {/* Book Now Button */}
+        <div className="mt-8">
+          <ReviewSection propertyId={property.id} />
+        </div>
+
         <button
           onClick={handleBookNow}
-          className="mt-6 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition"
+          className="mt-8 bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-6 rounded-lg transition"
         >
           Book Now
         </button>

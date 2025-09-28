@@ -471,25 +471,76 @@ __turbopack_context__.s({
     "default": (()=>__TURBOPACK__default__export__)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [client] (ecmascript)");
 ;
-const Card = ({ title, image, location, price, children })=>{
+;
+const Card = ({ title, image, location, price, rating, isSuperhost, children })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "bg-white rounded-xl shadow-md hover:shadow-lg border border-gray-200 overflow-hidden transition-transform duration-300",
         children: [
             image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "h-48 sm:h-56 w-full relative",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                    src: image,
-                    alt: title || "Property",
-                    className: "w-full h-full object-cover"
-                }, void 0, false, {
-                    fileName: "[project]/components/common/Card.tsx",
-                    lineNumber: 9,
-                    columnNumber: 11
-                }, this)
-            }, void 0, false, {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                        src: image,
+                        alt: title || 'Property',
+                        fill: true,
+                        sizes: "(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw",
+                        className: "object-cover",
+                        priority: false
+                    }, void 0, false, {
+                        fileName: "[project]/components/common/Card.tsx",
+                        lineNumber: 10,
+                        columnNumber: 11
+                    }, this),
+                    (isSuperhost || typeof rating === 'number') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute inset-0 p-3 flex justify-between pointer-events-none",
+                        children: [
+                            isSuperhost && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "bg-white/90 text-gray-900 text-xs font-semibold px-2 py-1 rounded-full shadow",
+                                children: "Superhost"
+                            }, void 0, false, {
+                                fileName: "[project]/components/common/Card.tsx",
+                                lineNumber: 21,
+                                columnNumber: 17
+                            }, this),
+                            typeof rating === 'number' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "ml-auto bg-white/90 text-gray-900 text-xs font-semibold px-2 py-1 rounded-full shadow flex items-center gap-1",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        className: "h-3.5 w-3.5 text-pink-600",
+                                        viewBox: "0 0 20 20",
+                                        fill: "currentColor",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                            d: "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.802 2.035a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.802-2.035a1 1 0 00-1.176 0l-2.802 2.035c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.88 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/common/Card.tsx",
+                                            lineNumber: 25,
+                                            columnNumber: 137
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/common/Card.tsx",
+                                        lineNumber: 25,
+                                        columnNumber: 19
+                                    }, this),
+                                    rating.toFixed(2)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/common/Card.tsx",
+                                lineNumber: 24,
+                                columnNumber: 17
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/components/common/Card.tsx",
+                        lineNumber: 19,
+                        columnNumber: 13
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/components/common/Card.tsx",
-                lineNumber: 8,
+                lineNumber: 9,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -500,7 +551,7 @@ const Card = ({ title, image, location, price, children })=>{
                         children: title
                     }, void 0, false, {
                         fileName: "[project]/components/common/Card.tsx",
-                        lineNumber: 17,
+                        lineNumber: 34,
                         columnNumber: 19
                     }, this),
                     location && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -508,7 +559,7 @@ const Card = ({ title, image, location, price, children })=>{
                         children: location
                     }, void 0, false, {
                         fileName: "[project]/components/common/Card.tsx",
-                        lineNumber: 18,
+                        lineNumber: 35,
                         columnNumber: 22
                     }, this),
                     price !== undefined && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -520,20 +571,20 @@ const Card = ({ title, image, location, price, children })=>{
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/common/Card.tsx",
-                        lineNumber: 20,
+                        lineNumber: 37,
                         columnNumber: 11
                     }, this),
                     children
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/common/Card.tsx",
-                lineNumber: 16,
+                lineNumber: 33,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/common/Card.tsx",
-        lineNumber: 6,
+        lineNumber: 7,
         columnNumber: 5
     }, this);
 };
@@ -556,8 +607,8 @@ __turbopack_context__.s({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
 ;
 const Button = ({ label, onClick, variant = 'primary', className = '', type = 'button', disabled = false, ariaLabel })=>{
-    const baseClasses = 'px-4 py-2.5 rounded-lg font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2';
-    const variantClasses = variant === 'primary' ? 'bg-green-600 hover:bg-green-700 text-white focus:ring-green-500' : 'bg-gray-200 hover:bg-gray-300 text-gray-800 focus:ring-gray-400';
+    const baseClasses = 'px-4 py-2.5 rounded-full font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm active:scale-[0.98]';
+    const variantClasses = variant === 'primary' ? 'bg-pink-600 hover:bg-pink-700 text-white focus:ring-pink-500' : 'bg-gray-200 hover:bg-gray-300 text-gray-800 focus:ring-gray-400';
     const disabledClasses = disabled ? 'opacity-60 cursor-not-allowed' : '';
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
         type: type,
@@ -689,19 +740,14 @@ function Home() {
                 lineNumber: 52,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(NavigationHeader, {}, void 0, false, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(HeroSection, {}, void 0, false, {
                 fileName: "[project]/pages/index.tsx",
                 lineNumber: 63,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(HeroSection, {}, void 0, false, {
-                fileName: "[project]/pages/index.tsx",
-                lineNumber: 66,
-                columnNumber: 7
-            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(FilterSection, {}, void 0, false, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 69,
+                lineNumber: 66,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ListingsSection, {
@@ -710,17 +756,12 @@ function Home() {
                 loading: loading
             }, void 0, false, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 72,
+                lineNumber: 69,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ShowMoreButton, {}, void 0, false, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 79,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Footer, {}, void 0, false, {
-                fileName: "[project]/pages/index.tsx",
-                lineNumber: 82,
+                lineNumber: 76,
                 columnNumber: 7
             }, this)
         ]
@@ -728,125 +769,6 @@ function Home() {
 }
 _s(Home, "GHOAN7h9Mu6I/LUJAEtJBThJSeQ=");
 _c = Home;
-// ─── Navigation Header with Auth & Links ────────────────────────────────────
-function NavigationHeader() {
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-        className: "bg-white shadow-sm sticky top-0 z-50",
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex items-center justify-between h-16",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                            href: "/",
-                            className: "flex items-center",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-2xl font-extrabold text-green-600",
-                                children: "alx"
-                            }, void 0, false, {
-                                fileName: "[project]/pages/index.tsx",
-                                lineNumber: 96,
-                                columnNumber: 13
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "[project]/pages/index.tsx",
-                            lineNumber: 95,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                            className: "hidden md:flex items-center space-x-6",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "/properties",
-                                    className: "text-gray-700 hover:text-green-600 font-medium transition",
-                                    children: "Properties"
-                                }, void 0, false, {
-                                    fileName: "[project]/pages/index.tsx",
-                                    lineNumber: 101,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "/bookings",
-                                    className: "text-gray-700 hover:text-green-600 font-medium transition",
-                                    children: "My Bookings"
-                                }, void 0, false, {
-                                    fileName: "[project]/pages/index.tsx",
-                                    lineNumber: 107,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/pages/index.tsx",
-                            lineNumber: 100,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex items-center space-x-4",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "/login",
-                                    className: "hidden sm:inline-block text-sm font-medium text-gray-700 hover:text-green-600 transition",
-                                    children: "Log in"
-                                }, void 0, false, {
-                                    fileName: "[project]/pages/index.tsx",
-                                    lineNumber: 117,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$common$2f$Button$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                    label: "Sign up",
-                                    onClick: ()=>window.location.href = "/signup",
-                                    variant: "primary",
-                                    className: "text-sm px-4 py-2"
-                                }, void 0, false, {
-                                    fileName: "[project]/pages/index.tsx",
-                                    lineNumber: 123,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/pages/index.tsx",
-                            lineNumber: 116,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/pages/index.tsx",
-                    lineNumber: 93,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/pages/index.tsx",
-                lineNumber: 92,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-green-700 text-white text-xs text-center py-2 sm:hidden",
-                children: [
-                    "Overseas trip? Get the latest travel guides ·",
-                    " ",
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        className: "underline hover:text-yellow-200 transition",
-                        children: "More Info"
-                    }, void 0, false, {
-                        fileName: "[project]/pages/index.tsx",
-                        lineNumber: 136,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/pages/index.tsx",
-                lineNumber: 134,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "[project]/pages/index.tsx",
-        lineNumber: 91,
-        columnNumber: 5
-    }, this);
-}
-_c1 = NavigationHeader;
 // ─── Hero Section ───────────────────────────────────────────────────────────
 function HeroSection() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -861,7 +783,7 @@ function HeroSection() {
                 className: "object-cover"
             }, void 0, false, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 149,
+                lineNumber: 88,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -872,7 +794,7 @@ function HeroSection() {
                         children: "Find your favorite place here!"
                     }, void 0, false, {
                         fileName: "[project]/pages/index.tsx",
-                        lineNumber: 158,
+                        lineNumber: 97,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -880,7 +802,7 @@ function HeroSection() {
                         children: "The best prices for over 2 million properties worldwide"
                     }, void 0, false, {
                         fileName: "[project]/pages/index.tsx",
-                        lineNumber: 161,
+                        lineNumber: 100,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -894,28 +816,28 @@ function HeroSection() {
                             className: "px-8 py-3 text-lg font-semibold"
                         }, void 0, false, {
                             fileName: "[project]/pages/index.tsx",
-                            lineNumber: 165,
+                            lineNumber: 104,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/index.tsx",
-                        lineNumber: 164,
+                        lineNumber: 103,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 157,
+                lineNumber: 96,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/index.tsx",
-        lineNumber: 148,
+        lineNumber: 87,
         columnNumber: 5
     }, this);
 }
-_c2 = HeroSection;
+_c1 = HeroSection;
 // ─── Filter Section ─────────────────────────────────────────────────────────
 function FilterSection() {
     const filters = [
@@ -934,7 +856,7 @@ function FilterSection() {
                 children: "Filter by Experience"
             }, void 0, false, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 191,
+                lineNumber: 130,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -945,22 +867,22 @@ function FilterSection() {
                         children: filter
                     }, filter, false, {
                         fileName: "[project]/pages/index.tsx",
-                        lineNumber: 196,
+                        lineNumber: 135,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 194,
+                lineNumber: 133,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/index.tsx",
-        lineNumber: 190,
+        lineNumber: 129,
         columnNumber: 5
     }, this);
 }
-_c3 = FilterSection;
+_c2 = FilterSection;
 function ListingsSection({ properties, error, loading }) {
     if (error) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -970,12 +892,12 @@ function ListingsSection({ properties, error, loading }) {
                 children: error
             }, void 0, false, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 221,
+                lineNumber: 160,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/pages/index.tsx",
-            lineNumber: 220,
+            lineNumber: 159,
             columnNumber: 7
         }, this);
     }
@@ -987,12 +909,12 @@ function ListingsSection({ properties, error, loading }) {
                 children: "No properties found."
             }, void 0, false, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 229,
+                lineNumber: 168,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/pages/index.tsx",
-            lineNumber: 228,
+            lineNumber: 167,
             columnNumber: 7
         }, this);
     }
@@ -1005,40 +927,40 @@ function ListingsSection({ properties, error, loading }) {
                 children: "Popular Stays"
             }, void 0, false, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 236,
+                lineNumber: 175,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6",
                 children: properties.map((property)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                        href: `/properties/${property.id}`,
+                        href: `/property/${property.id}`,
                         className: "transform hover:scale-105 transition-transform duration-300",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$common$2f$Card$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                             title: property.title,
                             image: property.imageUrl
                         }, void 0, false, {
                             fileName: "[project]/pages/index.tsx",
-                            lineNumber: 246,
+                            lineNumber: 185,
                             columnNumber: 13
                         }, this)
                     }, property.id, false, {
                         fileName: "[project]/pages/index.tsx",
-                        lineNumber: 241,
+                        lineNumber: 180,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/pages/index.tsx",
-                lineNumber: 239,
+                lineNumber: 178,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/index.tsx",
-        lineNumber: 235,
+        lineNumber: 174,
         columnNumber: 5
     }, this);
 }
-_c4 = ListingsSection;
+_c3 = ListingsSection;
 // ─── Show More Button ───────────────────────────────────────────────────────
 function ShowMoreButton() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1050,299 +972,22 @@ function ShowMoreButton() {
             className: "px-6 py-3 text-sm font-medium"
         }, void 0, false, {
             fileName: "[project]/pages/index.tsx",
-            lineNumber: 262,
+            lineNumber: 201,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/pages/index.tsx",
-        lineNumber: 261,
+        lineNumber: 200,
         columnNumber: 5
     }, this);
 }
-_c5 = ShowMoreButton;
-// ─── Footer ─────────────────────────────────────────────────────────────────
-function Footer() {
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-        className: "bg-gray-900 text-white pt-16 pb-8",
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-sm",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                className: "font-bold text-lg mb-4",
-                                children: "alx"
-                            }, void 0, false, {
-                                fileName: "[project]/pages/index.tsx",
-                                lineNumber: 280,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-gray-300 leading-relaxed max-w-xs",
-                                children: "ALX is a platform where travelers can discover and book unique, comfortable, and affordable lodging options worldwide."
-                            }, void 0, false, {
-                                fileName: "[project]/pages/index.tsx",
-                                lineNumber: 281,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/pages/index.tsx",
-                        lineNumber: 279,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                className: "font-semibold mb-4",
-                                children: "Explore Popular Destinations"
-                            }, void 0, false, {
-                                fileName: "[project]/pages/index.tsx",
-                                lineNumber: 289,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                className: "space-y-2",
-                                children: [
-                                    "Apartments in Dubai",
-                                    "Hotels in New York",
-                                    "Villa in Spain",
-                                    "Mansion in Indonesia"
-                                ].map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                            href: "#",
-                                            className: "text-gray-300 hover:text-green-400 transition",
-                                            children: item
-                                        }, void 0, false, {
-                                            fileName: "[project]/pages/index.tsx",
-                                            lineNumber: 294,
-                                            columnNumber: 19
-                                        }, this)
-                                    }, idx, false, {
-                                        fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 293,
-                                        columnNumber: 17
-                                    }, this))
-                            }, void 0, false, {
-                                fileName: "[project]/pages/index.tsx",
-                                lineNumber: 290,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/pages/index.tsx",
-                        lineNumber: 288,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                className: "font-semibold mb-4",
-                                children: "Company"
-                            }, void 0, false, {
-                                fileName: "[project]/pages/index.tsx",
-                                lineNumber: 308,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                className: "space-y-2",
-                                children: [
-                                    "About us",
-                                    "Blog",
-                                    "Careers",
-                                    "Customers"
-                                ].map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                            href: "#",
-                                            className: "text-gray-300 hover:text-green-400 transition",
-                                            children: item
-                                        }, void 0, false, {
-                                            fileName: "[project]/pages/index.tsx",
-                                            lineNumber: 312,
-                                            columnNumber: 17
-                                        }, this)
-                                    }, idx, false, {
-                                        fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 311,
-                                        columnNumber: 15
-                                    }, this))
-                            }, void 0, false, {
-                                fileName: "[project]/pages/index.tsx",
-                                lineNumber: 309,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/pages/index.tsx",
-                        lineNumber: 307,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                className: "font-semibold mb-4",
-                                children: "Help & Support"
-                            }, void 0, false, {
-                                fileName: "[project]/pages/index.tsx",
-                                lineNumber: 325,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                                className: "space-y-2",
-                                children: [
-                                    "Support Center",
-                                    "Cancel Booking",
-                                    "Refund Policy",
-                                    "Partner With Us"
-                                ].map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                            href: "#",
-                                            className: "text-gray-300 hover:text-green-400 transition",
-                                            children: item
-                                        }, void 0, false, {
-                                            fileName: "[project]/pages/index.tsx",
-                                            lineNumber: 330,
-                                            columnNumber: 19
-                                        }, this)
-                                    }, idx, false, {
-                                        fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 329,
-                                        columnNumber: 17
-                                    }, this))
-                            }, void 0, false, {
-                                fileName: "[project]/pages/index.tsx",
-                                lineNumber: 326,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/pages/index.tsx",
-                        lineNumber: 324,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/pages/index.tsx",
-                lineNumber: 277,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "border-t border-gray-800 mt-12 pt-8 max-w-7xl mx-auto px-4",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-col sm:flex-row justify-between items-center text-gray-400 text-xs space-y-4 sm:space-y-0",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                children: [
-                                    "Some hotels require you to cancel more than 24 hours before check-in. Details",
-                                    " ",
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                        href: "#",
-                                        className: "underline hover:text-white transition",
-                                        children: "here"
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 348,
-                                        columnNumber: 13
-                                    }, this),
-                                    "."
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/pages/index.tsx",
-                                lineNumber: 346,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex space-x-4",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                        href: "#",
-                                        className: "hover:underline",
-                                        children: "Terms"
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 354,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        children: "•"
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 357,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                        href: "#",
-                                        className: "hover:underline",
-                                        children: "Privacy"
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 358,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        children: "•"
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 361,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                        href: "#",
-                                        className: "hover:underline",
-                                        children: "Cookies"
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/index.tsx",
-                                        lineNumber: 362,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/pages/index.tsx",
-                                lineNumber: 353,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/pages/index.tsx",
-                        lineNumber: 345,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-center text-gray-500 mt-4",
-                        children: [
-                            "© ",
-                            new Date().getFullYear(),
-                            " ALX — All rights reserved."
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/pages/index.tsx",
-                        lineNumber: 367,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/pages/index.tsx",
-                lineNumber: 344,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true, {
-        fileName: "[project]/pages/index.tsx",
-        lineNumber: 276,
-        columnNumber: 5
-    }, this);
-}
-_c6 = Footer;
-var _c, _c1, _c2, _c3, _c4, _c5, _c6;
+_c4 = ShowMoreButton;
+var _c, _c1, _c2, _c3, _c4;
 __turbopack_context__.k.register(_c, "Home");
-__turbopack_context__.k.register(_c1, "NavigationHeader");
-__turbopack_context__.k.register(_c2, "HeroSection");
-__turbopack_context__.k.register(_c3, "FilterSection");
-__turbopack_context__.k.register(_c4, "ListingsSection");
-__turbopack_context__.k.register(_c5, "ShowMoreButton");
-__turbopack_context__.k.register(_c6, "Footer");
+__turbopack_context__.k.register(_c1, "HeroSection");
+__turbopack_context__.k.register(_c2, "FilterSection");
+__turbopack_context__.k.register(_c3, "ListingsSection");
+__turbopack_context__.k.register(_c4, "ShowMoreButton");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }

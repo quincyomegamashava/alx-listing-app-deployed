@@ -2,8 +2,12 @@
   "/": "pages/index.js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js",
   "/api/properties": "pages/api/properties.js",
+  "/api/properties/[id]": "pages/api/properties/[id].js",
+  "/api/properties/[id]/reviews": "pages/api/properties/[id]/reviews.js",
   "/booking": "pages/booking.js",
-  "/order-summary": "pages/order-summary.js"
+  "/login": "pages/login.js",
+  "/properties": "pages/properties.js",
+  "/property/[id]": "pages/property/[id].js",
+  "/signup": "pages/signup.js"
 }

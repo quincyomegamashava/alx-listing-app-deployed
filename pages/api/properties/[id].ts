@@ -8,7 +8,7 @@ const mockProperties = [
     description: "A warm and cozy cabin in the mountains.",
     location: "Denver, CO",
     price: 120,
-    imageUrl: "https://placehold.co/600x400",
+    imageUrl: "/assets/Logos.png",
   },
   {
     id: "2",
@@ -16,7 +16,7 @@ const mockProperties = [
     description: "Stay in the heart of the city.",
     location: "Austin, TX",
     price: 150,
-    imageUrl: "https://placehold.co/600x400",
+    imageUrl: "/assets/Logos.png",
   },
 ];
 

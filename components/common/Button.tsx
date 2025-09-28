@@ -10,10 +10,10 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   ariaLabel,
 }) => {
-  const baseClasses = 'px-4 py-2.5 rounded-lg font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseClasses = 'px-4 py-2.5 rounded-full font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm active:scale-[0.98]';
   const variantClasses =
     variant === 'primary'
-      ? 'bg-green-600 hover:bg-green-700 text-white focus:ring-green-500'
+      ? 'bg-pink-600 hover:bg-pink-700 text-white focus:ring-pink-500'
       : 'bg-gray-200 hover:bg-gray-300 text-gray-800 focus:ring-gray-400';
   const disabledClasses = disabled ? 'opacity-60 cursor-not-allowed' : '';
 

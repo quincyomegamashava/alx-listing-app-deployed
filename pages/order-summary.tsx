@@ -1,20 +1,21 @@
 import { useRouter } from "next/router";
+import Image from "next/image";
 import Button from "../components/common/Button";
 
 interface BookingDetails {
   propertyName: string;
-  price: string; // ← query params are strings
+  price: string;
   bookingFee: string;
   totalNights: string;
   startDate: string;
+  imageUrl?: string;
 }
 
 const OrderSummaryPage = () => {
   const router = useRouter();
-  const { propertyName, price, bookingFee, totalNights, startDate } =
+  const { propertyName, price, bookingFee, totalNights, startDate, imageUrl } =
     router.query as Partial<BookingDetails>;
 
-  // Validate required data
   if (!propertyName || !price || !bookingFee || !totalNights || !startDate) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
@@ -31,7 +32,6 @@ const OrderSummaryPage = () => {
     );
   }
 
-  // Parse numbers safely
   const priceNum = parseFloat(price);
   const feeNum = parseFloat(bookingFee);
   const nightsNum = parseInt(totalNights, 10);
@@ -41,38 +41,27 @@ const OrderSummaryPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-10">
       <div className="max-w-2xl mx-auto px-4">
-        {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-extrabold text-gray-900">
-            Review Your Booking
-          </h1>
-          <p className="text-gray-600 mt-2">
-            Almost there! Confirm your stay details below.
-          </p>
+          <h1 className="text-2xl font-extrabold text-gray-900">Review Your Booking</h1>
+          <p className="text-gray-600 mt-2">Almost there! Confirm your stay details below.</p>
         </div>
 
-        {/* Order Summary Card */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-          {/* Property Header */}
           <div className="p-6 border-b border-gray-100">
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="w-full sm:w-32 flex-shrink-0">
-                <img
-                  src="https://picsum.photos/300/200"
+                <Image
+                  src={(imageUrl as string) || "/assets/Logos.png"}
                   alt={propertyName}
+                  width={128}
+                  height={128}
                   className="w-full h-32 sm:h-full object-cover rounded-xl"
                 />
               </div>
               <div className="flex-grow">
-                <h2 className="text-xl font-bold text-gray-900">
-                  {propertyName}
-                </h2>
-                <p className="text-gray-600 mt-1">
-                  📅 Check-in: <span className="font-medium">{startDate}</span>
-                </p>
-                <p className="text-gray-600">
-                  🛏️ {nightsNum} night{nightsNum !== 1 ? "s" : ""}
-                </p>
+                <h2 className="text-xl font-bold text-gray-900">{propertyName}</h2>
+                <p className="text-gray-600 mt-1">📅 Check-in: <span className="font-medium">{startDate}</span></p>
+                <p className="text-gray-600">🛏️ {nightsNum} night{nightsNum !== 1 ? "s" : ""}</p>
               </div>
             </div>
           </div>
